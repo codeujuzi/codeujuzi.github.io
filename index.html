@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html><head><base href="https://codeujuzi.github.io/">
+    <title>Codeujuzi - Login and Register</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: #f0f4f8;
+            --text-color: #333;
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 800px;
+            display: flex;
+        }
+    
+        .left-panel {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .right-panel {
+            padding: 40px;
+            width: 60%;
+        }
+    
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+    
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #3a7bc8;
+        }
+    
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .toggle-form a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <div class="left-panel">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#f5a623"/>
+                <text x="50" y="50" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="central">Codeujuzi</text>
+                <path d="M30 70 L50 30 L70 70" stroke="white" stroke-width="4" fill="none"/>
+            </svg>
+            <h1>Welcome to Codeujuzi</h1>
+            <p>Unlock your coding potential with Codeujuzi. Join our community of passionate developers today!</p>
+        </div>
+        <div class="right-panel">
+            <div id="login-form">
+                <h2>Login</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <div class="toggle-form">
+                    <p>Don't have an account? <a href="#" onclick="toggleForm('register')">Register</a></p>
+                </div>
+            </div>
+            <div id="register-form" style="display: none;">
+                <h2>Register</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="toggle-form">
+                    <p>Already have an account? <a href="#" onclick="toggleForm('login')">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function toggleForm(formType) {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+    
+        if (formType === 'login') {
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        } else {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        }
+    }
+    </script>
+    </body>
+</html>

@@ -61,3 +61,17 @@ node <file-name>
 ![Front Page](static/frontpage.png)
 
 ![Reviews Page](static/reviewpage.png)
+
+
+## Successfull implementation of transalation
+Example 1 with same content
+
+![swahili Page](static/translate1.png)
+
+![swahili Page](static/translate3.png)
+
+![swahili Page](static/translate4.png)
+
+![swahili Page](static/translate5.png)
+
+

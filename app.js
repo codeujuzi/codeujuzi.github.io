@@ -1,4 +1,5 @@
-const Groq = require('groq-sdk');
+import Groq from 'groq-sdk';
+
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 // const groq = new Groq();
@@ -23,4 +24,9 @@ async function main() {
   }
 }
 
-main();
+function translatePage(){
+  const content = document.getElementById('description')
+  console.log(content.textContent)
+}
+
+export default { translatePage };

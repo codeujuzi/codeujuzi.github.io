@@ -38,3 +38,12 @@ A adaptive learning interface >> skills: that enhance employability.
 1. Platform Development
 2. Content Creation
 3. Engagement
+
+## Look
+![LogIn Page](static/login.png)
+
+![SIgnup Page](static/signup.png)
+
+![Front Page](static/frontpage.png)
+
+![Reviews Page](static/reviewpage.png)

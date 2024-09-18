@@ -9,13 +9,25 @@ topics through a website.
 + **Language Support:** Offers courses in Swahili, Dholuo, Kikuyu, and others.
 + **User-Friendly Design:** Bite-sized lessons for accessibility and engagement.
 
-A adaptive learning interface >> skills: that enhance employability.
+An adaptive learning interface >> skills: that enhance employability.
 + personalised learning systems.
 + automated tutoring.
 + educational content that bridges the knowledge gap.
 + STEM :: Technology; How to solve solutions using technology through Code: how to use computers,how to use AI.
 + Swahili, Kikuyu, Luo...
-
+##  Set up your API Key
+In your terminal of choice:
+```bash
+export GROQ_API_KEY=<your-api-key-here>
+```
+## Install the Groq JavaScript library:
+```bash
+npm install --save groq-sdk
+```
+## Run the program in terminal
+```bash
+node <file-name>
+```
 ## Key Features
 
 1. Sign-Up Process:

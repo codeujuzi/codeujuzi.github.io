@@ -1,81 +1,106 @@
-body, html {
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+  }
+  body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-}
-.header {
-    background-color: #58cc02;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  header {
+    background-color: var(--primary-color);
     color: white;
     padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-.hero {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-.cta-button {
-    background-color: #ff4b4b;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links a {
     color: white;
-    border: none;
-    padding: 1rem 2rem;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
     font-size: 1.2rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.cta-button:hover {
-    background-color: #e04141;
-}
-.features {
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .cta-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+  }
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+  }
+  .feature {
+    text-align: center;
+    max-width: 300px;
+  }
+  .feature svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    fill: var(--primary-color);
+  }
+  .courses {
+    background-color: white;
+    padding: 4rem 2rem;
+  }
+  .course-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
-.feature {
-    flex-basis: 30%;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.feature svg {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-}
-.courses {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 3rem;
-}
-.course {
-    background-color: white;
+    gap: 2rem;
+  }
+  .course-card {
+    background-color: var(--secondary-color);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1.5rem;
+    width: 250px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s;
-}
-.course:hover {
+  }
+  .course-card:hover {
     transform: translateY(-5px);
-}
-.progress-bar {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    margin-top: 1rem;
-}
-.progress {
-    width: 0;
-    height: 10px;
-    background-color: #58cc02;
-    border-radius: 10px;
-    transition: width 0.5s ease-in-out;
-}
+  }
+  .course-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }

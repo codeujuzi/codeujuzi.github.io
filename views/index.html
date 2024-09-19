@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+    <head>
     <meta charset="UTF-8">
-    <base href="https://codeujuzi.github.io/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Codeujuzi, an adaptive learning platform">
-    <link rel="icon" href="/static/img1.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="description" content="Codeujuzi, an adaptive learning">
+    <meta name="google-signin-client_id" content="1090766568035-s9qc3adkpa5egvh418o0mshii56ooss6.apps.googleusercontent.com">
+    <link rel="icon" href="/public/images/small_logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/public/css/style.css" media="all"/>
     <title>Codeujuzi - Login and Register</title>
-</head>
-<body>
+    <style>
+
+    </style>
+    </head>
+    <body>
     <div class="container">
-        <!-- Left Panel: Display introductory content and branding -->
         <div class="left-panel">
-            <img src="/static/CODE.gif" alt="CodeUjuzi gif" style="width: 100%; height: 100%;">
+            <img src="/public/images/CODE.gif" alt="gif" style="width: 100%; height: 100%;">
             <h1>Welcome to Codeujuzi</h1>
             <p>Unlock your coding potential with Codeujuzi. Join our community of passionate developers today!</p>
         </div>
-
-        <!-- Right Panel: Login and Registration forms -->
         <div class="right-panel">
-            <!-- Login Form -->
             <div id="login-form">
                 <h2>Login</h2>
-                <form onsubmit="handleLogin(event)">
+                <form>
                     <div class="form-group">
                         <label for="login-email">Email</label>
                         <input type="email" id="login-email" required>
@@ -34,15 +33,15 @@
                     </div>
                     <button type="submit">Login</button>
                 </form>
+                <br>
+                <div id="my-signin2"></div>
                 <div class="toggle-form">
                     <p>Don't have an account? <a href="#" onclick="toggleForm('register')">Register</a></p>
                 </div>
             </div>
-
-            <!-- Register Form -->
             <div id="register-form" style="display: none;">
                 <h2>Register</h2>
-                <form onsubmit="handleRegister(event)">
+                <form>
                     <div class="form-group">
                         <label for="register-name">Full Name</label>
                         <input type="text" id="register-name" required>
@@ -68,12 +67,11 @@
         </div>
     </div>
     
-    <!-- Script to toggle between forms and handle form submission -->
     <script>
     function toggleForm(formType) {
         const loginForm = document.getElementById('login-form');
         const registerForm = document.getElementById('register-form');
-
+    
         if (formType === 'login') {
             loginForm.style.display = 'block';
             registerForm.style.display = 'none';
@@ -82,20 +80,51 @@
             registerForm.style.display = 'block';
         }
     }
-
-    // Handle login event
-    function handleLogin(event) {
-        event.preventDefault();
-        // Insert actual login logic here, such as form validation and API calls
-        window.location.href = "/homepage";  // Redirect to homepage after login
-    }
-
-    // Handle registration event
-    function handleRegister(event) {
-        event.preventDefault();
-        // Insert actual registration logic here
-        window.location.href = "/homepage";  // Redirect to homepage after registration
-    }
     </script>
-</body>
+      <script>
+        function onSuccess(googleUser) {
+          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        //   var profile = googleUser.getBasicProfile();
+        // var id_token = googleUser.getAuthResponse().id_token;
+
+        // // Send the ID token to the backend
+        // fetch('/auth/google/callback', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ id_token: id_token }),
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     if (data.success) {
+        //         // Successfully logged in, redirect or perform an action
+        //         window.location.href = '/dashboard'; // Example: redirect to dashboard
+        //     } else {
+        //         console.error('Login failed:', data.error);
+        //     }
+        // })
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        // });
+
+        }
+        function onFailure(error) {
+          console.log(error);
+        }
+        function renderButton() {
+          gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+          });
+        }
+      </script>
+      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+      <script src="/public/js/googleAuth.js"></script>
+    </body>
 </html>

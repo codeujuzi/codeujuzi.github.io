@@ -75,3 +75,20 @@ Example 1 with same content
 ![swahili Page](static/translate5.png)
 
 
+```
+/project-root
+  /auth
+    google.js          // OAuth-related logic
+  /public 
+    /images
+    /css
+    /js
+      auth.js          // Client-side JavaScript for Google Sign-In and other functionalities
+  /views
+    index.html         // Contains login and register forms
+    homepage.html      // The landing page
+    outline.html       // Course details page
+    course.html        // Content page
+  .env                 // Environment variables
+  server.js            // Main server file
+```

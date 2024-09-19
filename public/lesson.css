@@ -1,0 +1,85 @@
+/* Ensure the page fills the entire height */
+html, body {
+    height: 100%; /* Full height */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Container takes up the full height of the viewport */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    flex: 1; /* Take up the remaining space */
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: relative; /* Ensure the footer stays at the bottom */
+    width: 100%;
+}
+
+footer button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #777;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border-left: 2px solid #ccc;
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+#translation-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#language-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#translate-button {
+    padding: 8px 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#translate-button:hover {
+    background-color: #777;
+}

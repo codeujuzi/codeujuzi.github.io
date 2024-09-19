@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Computers</title>
+    <link rel="stylesheet" href="lesson.css"> <!-- Link to external CSS for styling -->
+</head>
+<body>
+    <!-- Page Wrapper to ensure full height layout -->
+    <div class="container">
+        <!-- Page Header with Course Name -->
+        <header>
+            <h1>Introduction to Computers</h1> <!-- Constant Course Name -->
+        </header>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- Dynamic Sub-topic -->
+            <h2 id="sub-topic">Understanding Hardware</h2>
+
+            <!-- Educational Content to be translated -->
+            <div id="content">
+                <p id="lesson-content">A computer's hardware consists of physical components like the motherboard, CPU, and memory...</p>
+            </div>
+
+            <!-- Language selection and Translation Button -->
+            <div id="translation-controls">
+                <select id="language-select">
+                    <option value="swahili">Swahili</option>
+                    <option value="luganda">Luganda</option>
+                    <option value="amharic">Amharic</option>
+                </select>
+                <button id="translate-button">Translate</button>
+            </div>
+
+            <!-- Output for the Translated Text -->
+            <div id="output"></div>
+        </main>
+
+        <!-- Footer with Navigation Buttons -->
+        <footer>
+            <button id="back-button">Back to Homepage</button> <!-- This changes dynamically to 'Back to Homepage' on first page -->
+            <button id="next-page-button">Next Lesson</button> <!-- Next Page Button -->
+        </footer>
+    </div>
+
+    <script>
+        // Handle the translation request
+        document.getElementById('translate-button').addEventListener('click', () => {
+            const content = document.getElementById('lesson-content').textContent;
+            const language = document.getElementById('language-select').value; // Get selected language
+
+            fetch('/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content, language }) // Send content and selected language
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').textContent = data.translation || 'Error translating text.';
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = 'Error translating text.';
+                console.error('Error:', error);
+            });
+        });
+
+        // Navigation buttons logic
+        const backButton = document.getElementById('back-button');
+        const nextPageButton = document.getElementById('next-page-button');
+
+        // Handle Back Button (changes to 'Back to Homepage' for the first page)
+        backButton.addEventListener('click', () => {
+            window.location.href = 'homepage.html'; // Replace with actual homepage URL
+        });
+
+        // Handle Next Page Button (navigate to next lesson)
+        nextPageButton.addEventListener('click', () => {
+            window.location.href = 'lesson2.html'; // Replace with actual next lesson URL
+        });
+
+        // Dynamically set button text depending on the page
+        if (window.location.pathname.endsWith('index.html')) {
+            backButton.innerText = 'Back to Homepage';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate to Swahili</title>
+    <style>
+        #output {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            padding: 10px;
+            border-left: 2px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning Page</h1>
+    <p id="text-content">
+        This is some educational content that will be translated to Swahili.
+    </p>
+    <button id="translate-btn">Translate to Swahili</button>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('translate-btn').addEventListener('click', () => {
+            const content = document.getElementById('text-content').textContent;
+
+            fetch('/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').textContent = data.translation || 'Error translating text.';
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = 'Error translating text.';
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

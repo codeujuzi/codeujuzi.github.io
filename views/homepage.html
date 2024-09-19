@@ -1,79 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
-    <meta charset="UTF-8">
-    <base href="https://codeujuzi.github.io/">
-    <meta name="viewpoint" content="witdh=device-width, initial-scale=1.0">
-    <title>CodeUjuzi - Learn to Code with Fun!</title>
-    <link rel="stylesheet" href="/static/homepage.css">
+<html>
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeLingua - Learn Coding Like a Language</title>
+<style>
+  :root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .cta-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+  }
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+  }
+  .feature {
+    text-align: center;
+    max-width: 300px;
+  }
+  .feature svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    fill: var(--primary-color);
+  }
+  .courses {
+    background-color: white;
+    padding: 4rem 2rem;
+  }
+  .course-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .course-card {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .course-card:hover {
+    transform: translateY(-5px);
+  }
+  .course-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+</style>
 </head>
 <body>
-    <header class="header">
-        <h1>CodeUjuzi</h1>
-        <p>Learn to Code with Fun!</p>
-    </header>
+  <header>
+    <nav>
+      <div class="logo">CodeLingua</div>
+      <div class="nav-links">
+        <a href="/courses">Courses</a>
+        <a href="/practice">Practice</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/login">Log In</a>
+      </div>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section class="hero">
-            <h2>Embark on Your Coding Adventure!</h2>
-            <p>Master programming languages through interactive lessons and daily challenges.</p>
-            <button class="cta-button">Start Learning Now</button>
-        </section>
+  <main>
+    <section class="hero">
+      <h1>Master Coding Like Learning a Language</h1>
+      <p>Interactive lessons, daily practice, and gamified learning to make you fluent in code.</p>
+      <a href="/get-started" class="cta-button">Start Your Coding Journey</a>
+    </section>
 
-        <section class="features">
-            <div class="feature">
-                <svg viewBox="0 0 24 24" fill="#58cc02">
-                    <path d="M12 2L1 21h22L12 2zm0 3.5L19.5 19h-15L12 5.5z"/>
-                </svg>
-                <h3>Gamified Learning</h3>
-                <p>Earn points, unlock achievements, and climb the leaderboard as you learn.</p>
-            </div>
-            <div class="feature">
-                <svg viewBox="0 0 24 24" fill="#58cc02">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-                <h3>Learn at Your Pace</h3>
-                <p>Set daily goals and track your progress with personalized learning paths.</p>
-            </div>
-            <div class="feature">
-                <svg viewBox="0 0 24 24" fill="#58cc02">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                </svg>
-                <h3>Community Support</h3>
-                <p>Join a global community of learners and mentors to accelerate your growth.</p>
-            </div>
-        </section>
+    <section class="features">
+      <div class="feature">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <h3>Bite-sized Lessons</h3>
+        <p>Learn complex concepts through short, focused interactive exercises.</p>
+      </div>
+      <div class="feature">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+        </svg>
+        <h3>Daily Streak</h3>
+        <p>Build a habit of coding with daily goals and streak rewards.</p>
+      </div>
+      <div class="feature">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+        <h3>Leaderboards</h3>
+        <p>Compete with friends and track your progress on global leaderboards.</p>
+      </div>
+    </section>
 
-        <section class="courses">
-            <div class="course">
-                <h3>Python Basics</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
-                </div>
-                <p>75% Complete</p>
-            </div>
-            <div class="course">
-                <h3>JavaScript Fundamentals</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 40%;"></div>
-                </div>
-                <p>40% Complete</p>
-            </div>
-            <div class="course">
-                <h3>HTML & CSS Mastery</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%;"></div>
-                </div>
-                <p>90% Complete</p>
-            </div>
-            <div class="course">
-                <h3>Java for Beginners</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 10%;"></div>
-                </div>
-                <p>10% Complete</p>
-            </div>
-        </section>
-    </div>
-    <script src="homepage.js"></script>
-</body>
-</html>
+    <section class="courses">
+      <h2>Popular Courses</h2>
+      <div class="course-list">
+        <div class="course-card">
+          <h3>Introduction to Computer Science</h3>
+          <p>Learn the fundamentals of computing and algorithmic thinking.</p>
+          <a href="/courses/intro-to-cs" class="cta-button">Start Course</a>
+        </div>
+        <div class="course-card">
+          <h3>JavaScript Mastery</h3>
+          <p>Become proficient in JavaScript, from basics to advanced concepts.</p>
+          <a href="/courses/javascript" class="cta-button">Start Course</a>
+        </div>
+        <div class="course-card">
+          <h3>Go Programming Language</h3>
+          <p>Learn Go, the efficient and powerful programming language by Google.</p>
+          <a href="/courses/golang" class="cta-button">Start Course</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 CodeLingua. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const courseName = this.parentElement.querySelector('h3').textContent;
+          alert(`Great choice! You're about to start the "${courseName}" course. Get ready to level up your coding skills!`);
+          window.location.href = this.href;
+        });
+      });
+
+      const features = document.querySelectorAll('.feature');
+      features.forEach(feature => {
+        feature.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.05)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+        feature.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+
+      // Simulating a daily streak counter
+      const streakCount = localStorage.getItem('streakCount') || 0;
+      const lastVisit = localStorage.getItem('lastVisit');
+      const today = new Date().toDateString();
+
+      if (lastVisit !== today) {
+        localStorage.setItem('streakCount', Number(streakCount) + 1);
+        localStorage.setItem('lastVisit', today);
+      }
+
+      const newStreak = localStorage.getItem('streakCount');
+      if (newStreak > 0) {
+        const streakMessage = document.createElement('div');
+        streakMessage.textContent = `🔥 ${newStreak} day streak! Keep it up!`;
+        streakMessage.style.position = 'fixed';
+        streakMessage.style.top = '10px';
+        streakMessage.style.right = '10px';
+        streakMessage.style.background = 'var(--primary-color)';
+        streakMessage.style.color = 'white';
+        streakMessage.style.padding = '10px';
+        streakMessage.style.borderRadius = '5px';
+        document.body.appendChild(streakMessage);
+
+        setTimeout(() => {
+          streakMessage.style.display = 'none';
+        }, 5000);
+      }
+    });
+  </script>
+</body></html>

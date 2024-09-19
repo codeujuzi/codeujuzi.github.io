@@ -15,6 +15,22 @@ app.get('/', (req, res) => {
 // Handle any other routes, like the homepage
 app.get('/homepage', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'homepage.html'));
+    res.sendFile(path.join(__dirname, 'views', 'course.html'));
+    res.sendFile(path.join(__dirname, 'views', 'lessons.html'));
+
+});
+
+// Handle any other routes, like the homepage
+app.get('/course', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'course.html'));
+
+});
+
+
+// Handle any other routes, like the homepage
+app.get('/lessons', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'lessons.html'));
+
 });
 
 app.listen(PORT, () => {

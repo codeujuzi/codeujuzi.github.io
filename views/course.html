@@ -1,0 +1,219 @@
+!DOCTYPE
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Codeujuzi, an adaptive learning">
+        <link rel="icon" href="/images/img1.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/css/course.css" media="all"/>
+<title>CodeQuest - Python Course Structure</title>
+</head>
+<body>
+    <header class="header">
+        <h1>CodeUjuzi</h1>
+        <p>Master Python: Interactive Learning Journey</p>
+    </header>
+
+    <div class="container">
+        <h2 class="course-title">Python Course Structure</h2>
+        
+        <div class="module">
+            <div class="module-header">
+                <h3>Module 1: Python Fundamentals</h3>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="module-content">
+                <div class="lesson" data-progress="100">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 1: Hello, Python!</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+print("Hello, World!")
+# Your first Python program
+# It prints a greeting to the console
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="75">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 2: Variables & Data Types</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+age = 25
+name = "Alice"
+height = 1.65
+is_student = True
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="50">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 3: Basic Operators</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+x = 10
+y = 5
+sum = x + y
+difference = x - y
+product = x * y
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>Module 2: Control Flow</h3>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="module-content">
+                <div class="lesson" data-progress="25">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 1: If-Else Statements</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+age = 18
+if age >= 18:
+    print("You are an adult")
+else:
+    print("You are a minor")
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="0">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 2: For Loops</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="0">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 3: While Loops</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>Module 3: Functions</h3>
+                <span class="toggle">▼</span>
+            </div>
+            <div class="module-content">
+                <div class="lesson" data-progress="0">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 1: Defining Functions</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+def greet(name):
+    return f"Hello, {name}!"
+
+message = greet("Alice")
+print(message)
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="0">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 2: Function Parameters</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # Output: 8
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson" data-progress="0">
+                    <div class="progress-circle">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="lesson-title">Lesson 3: Return Values</span>
+                    <div class="lesson-preview">
+                        <div class="code-preview">
+def is_even(number):
+    return number % 2 == 0
+
+print(is_even(4))  # Output: True
+print(is_even(7))  # Output: False
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Toggle module content
+        const moduleHeaders = document.querySelectorAll('.module-header');
+        moduleHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const toggle = header.querySelector('.toggle');
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    toggle.textContent = '▼';
+                } else {
+                    content.style.display = 'block';
+                    toggle.textContent = '▲';
+                }
+            });
+        });
+
+        // Show lesson preview on hover
+        const lessons = document.querySelectorAll('.lesson');
+        lessons.forEach(lesson => {
+            const preview = lesson.querySelector('.lesson-preview');
+            lesson.addEventListener('mouseenter', () => {
+                preview.style.display = 'block';
+            });
+            lesson.addEventListener('mouseleave', () => {
+                preview.style.display = 'none';
+            });
+
+            // Set progress circle
+            const progressCircle = lesson.querySelector('.progress-fill');
+            const progress = lesson.dataset.progress;
+            const degrees = 3.6 * progress;
+            if (degrees <= 180) {
+                progressCircle.style.transform = `rotate(${degrees}deg)`;
+            } else {
+                progressCircle.style.transform = 'rotate(180deg)';
+                progressCircle.nextElementSibling.style.transform = `rotate(${degrees}deg)`;
+            }
+        });
+    });
+    </script>
+</body></html>

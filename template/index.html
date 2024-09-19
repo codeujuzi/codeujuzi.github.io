@@ -1,0 +1,287 @@
+<html>
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUjuzi: Unleash Your Coding Potential</title>
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+ 
+  .content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  .course-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+  }
+  .course-card:hover::before {
+    top: -75%;
+    left: -75%;
+  }
+  .course-card h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  .cta-button:hover {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  .get-started {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    border-radius: 15px;
+    text-align: center;
+  }
+  .get-started h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .get-started p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  .big-cta {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    background-color: white;
+    color: var(--primary-color);
+  }
+  .big-cta:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: white;
+  }
+  .coming-soon {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 15px;
+  }
+  .coming-soon h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+  }
+  .course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .future-course {
+    background-color: var(--card-bg-color);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  .future-course:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+      <a href="index.html" class="brand">CodeUjuzi</a>
+      <a href="course-outline.html" class="nav-link">Courses</a>
+  </div>
+
+  <div class="navbar-right">
+      <!-- Language Selection -->
+      <div class="dropdown language-dropdown">
+          <button class="dropdown-btn">Language</button>
+          <div class="dropdown-content">
+              <a href="#">English</a>
+              <a href="#">Kiswahili</a>
+              <a href="#">French</a>
+          </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="dropdown profile-dropdown">
+          <img src="avatar.png" alt="Profile" class="avatar">
+          <div class="dropdown-content">
+              <a href="#">Profile</a>
+              <a href="login.html">Log In</a>
+              <a href="register.html">Sign Up</a>
+              <a href="logout.html">Logout</a>
+          </div>
+      </div>
+  </div>
+</nav>
+
+  <header class="header">
+    <h1>CodeUjuzi</h1>
+    <p>Unleash Your Coding Potential</p>
+  </header>
+  
+  <main class="content">
+    <h2>Embark on Your Coding Journey</h2>
+    <p>Discover the art and science of programming through our immersive, interactive courses. From beginner to expert, we've got you covered.</p>
+    
+    <div class="course-card">
+      <h3>Web Wizardry</h3>
+      <p>Master HTML, CSS, and JavaScript to create stunning websites. This comprehensive course covers everything from basic markup to advanced front-end frameworks, preparing you for a career in modern web development.</p>
+      <ul>
+        <li>Learn responsive design principles</li>
+        <li>Dive deep into JavaScript and DOM manipulation</li>
+        <li>Explore popular frameworks like React and Vue</li>
+        <li>Build real-world projects to showcase your skills</li>
+      </ul>
+    </div>
+
+    <a href="course-outline.html" class="cta-button">Begin Your Quest</a>
+
+    <div class="coming-soon">
+      <h3>More Magical Courses Coming Soon!</h3>
+      <p>We're brewing up some incredible new courses to expand your coding repertoire. Stay tuned for these upcoming adventures:</p>
+      <div class="course-list">
+        <div class="future-course">Python Sorcery</div>
+        <div class="future-course">Data Alchemy</div>
+        <div class="future-course">Mobile Enchantment</div>
+        <div class="future-course">Cloud Conjuring</div>
+        <div class="future-course">AI Arcana</div>
+      </div>
+    </div>
+
+    <div class="get-started">
+      <h2>Ready to Transform Your Future?</h2>
+      <p>Join thousands of aspiring developers who have unlocked their potential with CodeUjuzi. Your journey to coding mastery starts here!</p>
+      <a href="register.html" class="cta-button big-cta">Get Started Today</a>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    // Animate header on load
+    anime({
+      targets: '.header h1, .header p',
+      translateY: [50, 0],
+      opacity: [0, 1],
+      duration: 1500,
+      delay: anime.stagger(200),
+      easing: 'easeOutQuad'
+    });
+
+    // Animate course card on scroll
+    const animateCard = () => {
+      anime({
+        targets: '.course-card',
+        translateY: [100, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    };
+
+    // Trigger animation when card comes into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCard();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(document.querySelector('.course-card'));
+
+    // Interactive hover effect for course card
+    const card = document.querySelector('.course-card');
+    card.addEventListener('mouseenter', () => {
+      anime({
+        targets: card,
+        scale: 1.05,
+        boxShadow: '0 12px 24px rgba(0, 0, 0, 0.3)',
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      anime({
+        targets: card,
+        scale: 1,
+        boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+
+    // Animate future courses
+    anime({
+      targets: '.future-course',
+      translateY: [20, 0],
+      opacity: [0, 0.7],
+      delay: anime.stagger(100),
+      duration: 800,
+      easing: 'easeOutQuad'
+    });
+
+    // Particle effect in header
+    const createParticle = () => {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.position = 'absolute';
+      particle.style.width = '5px';
+      particle.style.height = '5px';
+      particle.style.background = 'rgba(255,255,255,0.5)';
+      particle.style.borderRadius = '50%';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = '100%';
+      document.querySelector('.header').appendChild(particle);
+
+      anime({
+        targets: particle,
+        top: '0%',
+        opacity: [1, 0],
+        duration: Math.random() * 2000 + 1000,
+        easing: 'easeOutQuad',
+        complete: function() {
+          particle.remove();
+        }
+      });
+    };
+
+    setInterval(createParticle, 100);
+  </script>
+</body></html>

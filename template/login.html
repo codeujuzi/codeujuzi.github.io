@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - CodeUjuzi</title>
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+ 
+  body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 1rem;
+  }
+  h1 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+  }
+  form {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+  }
+  input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(3, 218, 198, 0.2);
+  }
+  button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  button:hover {
+    background-color: var(--secondary-color);
+  }
+  .error {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  .signup-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .signup-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  .forgot-password {
+    text-align: right;
+    margin-top: 0.5rem;
+  }
+  .forgot-password a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  .navbar{
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+      <a href="index.html" class="brand">CodeUjuzi</a>
+      <a href="course-outline.html" class="nav-link">Courses</a>
+  </div>
+
+  <div class="navbar-right">
+      <!-- Language Selection -->
+      <div class="dropdown language-dropdown">
+          <button class="dropdown-btn">Language</button>
+          <div class="dropdown-content">
+              <a href="#">English</a>
+              <a href="#">Kiswahili</a>
+              <a href="#">French</a>
+          </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="dropdown profile-dropdown">
+          <img src="avatar.png" alt="Profile" class="avatar">
+          <div class="dropdown-content">
+              <a href="#">Profile</a>
+              <a href="#">Logout</a>
+          </div>
+      </div>
+  </div>
+</nav>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div class="error">Email is required</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+      </div>
+      <button type="submit">Login</button>
+      <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+      </div>
+    </form>
+
+    <div class="signup-section">
+      <p>Don't have an account? <a href="register.html" class="signup-link">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>

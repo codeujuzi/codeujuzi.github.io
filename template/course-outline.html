@@ -1,0 +1,222 @@
+<html>
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Wizardry Course - CodeUjuzi</title>
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+
+  .header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  .course-info {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .course-info h2 {
+    color: var(--secondary-color);
+    margin-top: 0;
+  }
+  .module {
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  .module:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+  .module h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  .cta-button:hover {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  .instructor {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .instructor img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  .progress-bar {
+    background-color: rgba(255,255,255,0.1);
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+  .progress {
+    width: 0%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: width 1s ease-in-out;
+  }
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+      <a href="index.html" class="brand">CodeUjuzi</a>
+      <a href="course-outline.html" class="nav-link">Courses</a>
+  </div>
+
+  <div class="navbar-right">
+      <!-- Language Selection -->
+      <div class="dropdown language-dropdown">
+          <button class="dropdown-btn">Language</button>
+          <div class="dropdown-content">
+              <a href="#">English</a>
+              <a href="#">Kiswahili</a>
+              <a href="#">French</a>
+          </div>
+      </div>
+
+     
+      <!-- Profile Dropdown -->
+      <div class="dropdown profile-dropdown">
+        <img src="avatar.png" alt="Profile" class="avatar">
+        <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="login.html">Log In</a>
+            <a href="register.html">Sign Up</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div>
+  </div>
+</nav>
+  <header class="header">
+    <h1>Web Wizardry</h1>
+  </header>
+  
+  <main class="content">
+    <div class="course-info">
+      <h2>Course Overview</h2>
+      <p>Welcome to Web Wizardry, your gateway to mastering the art of web development. This comprehensive course will take you from a complete beginner to a confident web developer, equipped with the skills to create stunning, responsive websites.</p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <p>Course Progress: <span id="progress-text">0%</span></p>
+    </div>
+
+    <div class="module">
+      <h3>Module 1: HTML Foundations</h3>
+      <p>Learn the building blocks of the web. Master HTML5 semantics and structure your content like a pro.</p>
+      <ul>
+        <li>Introduction to HTML5</li>
+        <li>Semantic Elements</li>
+        <li>Forms and Input Types</li>
+        <li>Accessibility Best Practices</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h3>Module 2: CSS Styling Magic</h3>
+      <p>Transform your HTML into visually appealing designs. Dive into layouts, animations, and responsive techniques.</p>
+      <ul>
+        <li>CSS Selectors and Properties</li>
+        <li>Flexbox and Grid Layouts</li>
+        <li>CSS Animations and Transitions</li>
+        <li>Media Queries and Responsive Design</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <h3>Module 3: JavaScript Sorcery</h3>
+      <p>Bring your websites to life with interactivity. Learn core JavaScript concepts and DOM manipulation.</p>
+      <ul>
+        <li>JavaScript Fundamentals</li>
+        <li>DOM Manipulation Techniques</li>
+        <li>Event Handling and User Interaction</li>
+        <li>Asynchronous JavaScript and Fetch API</li>
+      </ul>
+    </div>
+
+    <a href="lessons.html" class="cta-button">Enroll Now and Begin Your Journey</a>
+
+    <div class="instructor">
+      <img src="https://codeujuzi.com/images/instructor-avatar.jpg" alt="Instructor Avatar" width="80" height="80">
+      <div>
+        <h3>Your Instructor: Jane Doe</h3>
+        <p>With over 10 years of experience in web development and a passion for teaching, Jane will guide you through your coding journey with expertise and enthusiasm.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Animate progress bar
+    const progressBar = document.querySelector('.progress');
+    const progressText = document.getElementById('progress-text');
+    let progress = 0;
+    const animateProgress = () => {
+      if (progress < 100) {
+        progress++;
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${progress}%`;
+        setTimeout(animateProgress, 50);
+      }
+    };
+    animateProgress();
+
+    // Module hover effect
+    const modules = document.querySelectorAll('.module');
+    modules.forEach(module => {
+      module.addEventListener('mouseenter', () => {
+        module.style.transform = 'translateY(-5px)';
+        module.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+      });
+      module.addEventListener('mouseleave', () => {
+        module.style.transform = 'translateY(0)';
+        module.style.boxShadow = 'none';
+      });
+    });
+
+  
+
+    // Interactive course info
+    const courseInfo = document.querySelector('.course-info');
+    courseInfo.addEventListener('click', () => {
+      const randomColor = Math.floor(Math.random()*16777215).toString(16);
+      courseInfo.style.borderLeft = `5px solid #${randomColor}`;
+    });
+  </script>
+</body>
+</html>

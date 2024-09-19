@@ -10,19 +10,28 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 app.use(bodyParser.json());
 
-// Serve static files like index.html
-app.use(express.static(path.join(__dirname)));
+// Serve static files (like HTML, CSS, JS) from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for the translation request
 app.post('/translate', async (req, res) => {
-    const { content } = req.body;
+    const { content, language } = req.body; // Receive language from the frontend
 
+    // Map the selected language to its respective language prompt
+    const languageMap = {
+        swahili: 'Swahili',
+        luganda: 'Luganda',
+        amharic: 'Amharic'
+    };
+
+    const selectedLanguage = languageMap[language] || 'Swahili'; // Default to Swahili if no language is selected
+console.log(selectedLanguage)
     try {
         const chatCompletion = await groq.chat.completions.create({
             "messages": [
                 {
                     "role": "user",
-                    "content": `Translate the following text to Swahili: ${content}`
+                    "content": `Translate the following text to ${selectedLanguage}: ${content}`
                 }
             ],
             "model": "llama-3.1-70b-versatile",

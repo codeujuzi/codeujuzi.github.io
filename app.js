@@ -47,7 +47,6 @@ app.post('/translate', async (req, res) => {
     };
 
     const selectedLanguage = languageMap[language] || 'Swahili'; // Default to Swahili if no language is selected
-console.log(selectedLanguage)
     try {
         const chatCompletion = await groq.chat.completions.create({
             "messages": [
@@ -64,7 +63,6 @@ console.log(selectedLanguage)
         });
 
         const translatedText = chatCompletion.choices[0]?.message?.content;
-        console.log(translatedText)
         res.json({ translation: translatedText });
 
     } catch (error) {

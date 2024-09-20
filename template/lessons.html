@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Lessons</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .nav-buttons {
+            margin: 1rem 0;
+        }
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .lesson-section {
+            background-color: var(--card-bg-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .lesson-section h2 {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="/" class="brand">CodeUjuzi</a>
+        <a href="/course-outline" class="nav-link">Courses</a>
+    </div>
+
+    <div class="navbar-right">
+        <!-- Language Selection -->
+        <div class="dropdown language-dropdown">
+            <button class="dropdown-btn">Language</button>
+            <div class="dropdown-content">
+                <a href="#" class="language-option" data-language="Swahili">Swahili</a>
+                <a href="#" class="language-option" data-language="Luganda">Luganda</a>
+                <a href="#" class="language-option" data-language="Maasai">Maasai</a>
+                <a href="#" class="language-option" data-language="Amharic">Amharic</a>
+            </div>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="dropdown profile-dropdown">
+            <img src="avatar.png" alt="Profile" class="avatar">
+            <div class="dropdown-content">
+                <a href="#" id="profileName">Profile</a>
+                <a href="#" id="logoutLink">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="header">
+    <h1 id="page-title">Introduction to HTML5</h1>
+    <p id="lesson-info">Lesson 1 of Web Wizardry Course</p>
+    <div class="nav-buttons">
+        <button class="nav-button" id="prev-btn" onclick="prevLesson()">Previous</button>
+        <button class="nav-button" id="next-btn" onclick="nextLesson()">Next</button>
+    </div>
+</header>
+
+<main class="content">
+    <div id="lesson-details" class="lesson-section">
+        <h2 id="lesson-title">Lesson Title</h2>
+        <p id="lesson-content">Lesson content goes here.</p>
+    </div>
+    <div id="output"></div>
+</main>
+
+<script>
+    //   document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a logged-in user
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    // Redirect to login if not authenticated
+    if (currentUser) {
+      document.getElementById('profileName').innerText = `${currentUser.name}`; // Display user name
+    }
+
+    // Handle logout
+    document.getElementById('logoutLink').addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent the default link action
+      sessionStorage.removeItem('currentUser'); // Clear the session
+      window.location.href = 'login.html'; // Redirect to login
+    });
+    const lessons = [
+        {
+            title: "What is HTML5?",
+            content: "HTML5 is the latest evolution of the standard that defines HTML. It's a markup language used for structuring and presenting content on the World Wide Web. Some features of HTML5 include:\n\n" +
+            "- **New Elements**: HTML5 introduced new semantic elements like `<article>`, `<section>`, `<header>`, `<footer>`, and `<nav>`.\n" +
+            "- **Audio & Video**: You can now easily embed multimedia using `<audio>` and `<video>` tags without the need for third-party plugins like Flash.\n" +
+            "- **Canvas and SVG**: These elements allow for 2D graphics and animation directly within the browser.\n" +
+            "- **Local Storage**: HTML5 offers local storage that persists even after closing the browser, a huge improvement over cookies."
+        },
+        {
+            title: "What is CSS?",
+            content: "CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. Some features of CSS include:\n\n" +
+            "- **Selectors**: CSS allows you to target specific HTML elements using various selectors like class selectors (`.class`), ID selectors (`#id`), and element selectors (`element`).\n" +
+            "- **Box Model**: The CSS box model includes properties like `margin`, `padding`, `border`, and `content`, which are essential for spacing and layout control.\n" +
+            "- **Responsive Design**: CSS provides media queries that allow websites to adapt to different screen sizes, ensuring that the layout looks great on mobile devices, tablets, and desktops.\n" +
+            "- **Flexbox & Grid**: These are advanced layout models that allow you to design responsive and complex page layouts with ease."
+        },
+        {
+            title: "What is JavaScript?",
+            content: "JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is widely used to add interactivity and dynamic content to websites. Some features of JavaScript include:\n\n" +
+            "- **Dynamic Typing**: Variables in JavaScript are not bound to any specific data type, making it easy to write flexible code.\n" +
+            "- **Asynchronous Programming**: JavaScript supports asynchronous operations via callbacks, promises, and the `async/await` syntax, allowing for non-blocking execution of tasks like API calls.\n" +
+            "- **DOM Manipulation**: JavaScript allows direct manipulation of the Document Object Model (DOM), enabling developers to create, modify, or delete HTML elements dynamically.\n" +
+            "- **Event Handling**: JavaScript can respond to user interactions like clicks, mouse movement, keyboard input, and form submissions using event listeners."
+        }
+    ];
+
+    let currentLessonIndex = 0;
+
+    function updateLesson() {
+        const lessonTitle = document.getElementById('lesson-title');
+        const lessonContent = document.getElementById('lesson-content');
+
+        lessonTitle.innerText = lessons[currentLessonIndex].title;
+        lessonContent.innerText = lessons[currentLessonIndex].content.replace(/\n/g, '\n');
+    }
+
+    function prevLesson() {
+        if (currentLessonIndex > 0) {
+            currentLessonIndex--;
+            updateLesson();
+        }
+    }
+
+    function nextLesson() {
+        if (currentLessonIndex < lessons.length - 1) {
+            currentLessonIndex++;
+            updateLesson();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateLesson();
+    });
+
+    document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default link action
+
+        const selectedLanguage = e.target.getAttribute('data-language');
+        console.log("languag is",selectedLanguage)
+        const content = document.getElementById('lesson-content').textContent;
+
+        fetch('/translate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content, language: selectedLanguage }) // Include selected language
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('output').textContent = data.translation || 'Error translating text.';
+        })
+        .catch(error => {
+            document.getElementById('output').textContent = 'Error translating text.';
+            console.error('Error:', error);
+        });
+    });
+    });
+
+</script>
+
+</body>
+</html>

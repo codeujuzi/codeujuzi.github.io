@@ -86,7 +86,6 @@
 
 <header class="header">
     <h1 id="page-title">Introduction to HTML5</h1>
-    <p id="lesson-info">Lesson 1 of Web Wizardry Course</p>
     <div class="nav-buttons">
         <button class="nav-button" id="prev-btn" onclick="prevLesson()">Previous</button>
         <button class="nav-button" id="next-btn" onclick="nextLesson()">Next</button>
@@ -150,6 +149,9 @@
         const lessonTitle = document.getElementById('lesson-title');
         const lessonContent = document.getElementById('lesson-content');
 
+        const div = document.getElementById('output')
+        div.style.display="none"
+
         lessonTitle.innerText = lessons[currentLessonIndex].title;
         lessonContent.innerText = lessons[currentLessonIndex].content.replace(/\n/g, '\n');
     }
@@ -190,6 +192,7 @@
         .then(response => response.json())
         .then(data => {
             document.getElementById('output').textContent = data.translation || 'Error translating text.';
+            document.getElementById('output').style.display = "block";
         })
         .catch(error => {
             document.getElementById('output').textContent = 'Error translating text.';

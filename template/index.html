@@ -122,8 +122,8 @@
   <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-left">
-      <a href="index.html" class="brand">CodeUjuzi</a>
-      <a href="course-outline.html" class="nav-link">Courses</a>
+      <a href="/" class="brand">CodeUjuzi</a>
+      <a href="/course-outline" class="nav-link">Courses</a>
   </div>
 
   <div class="navbar-right">
@@ -141,14 +141,16 @@
       <div class="dropdown profile-dropdown">
           <img src="avatar.png" alt="Profile" class="avatar">
           <div class="dropdown-content">
-              <a href="#">Profile</a>
-              <a href="login.html">Log In</a>
-              <a href="register.html">Sign Up</a>
-              <a href="logout.html">Logout</a>
+            <!-- <span ></span> -->
+              <a href="#" id="profileName">Profile</a>
+              <a href="/login" id="loginLink">Log In</a>
+              <a href="/register" id="registerLink">Sign Up</a>
+              <a href="#" id="logoutLink">Logout</a>
           </div>
       </div>
   </div>
 </nav>
+
 
   <header class="header">
     <h1>CodeUjuzi</h1>
@@ -170,7 +172,7 @@
       </ul>
     </div>
 
-    <a href="course-outline.html" class="cta-button">Begin Your Quest</a>
+    <a href="/course-outline" class="cta-button">Begin Your Quest</a>
 
     <div class="coming-soon">
       <h3>More Magical Courses Coming Soon!</h3>
@@ -187,12 +189,36 @@
     <div class="get-started">
       <h2>Ready to Transform Your Future?</h2>
       <p>Join thousands of aspiring developers who have unlocked their potential with CodeUjuzi. Your journey to coding mastery starts here!</p>
-      <a href="register.html" class="cta-button big-cta">Get Started Today</a>
+      <a href="/register" id="getStartedLink" class="cta-button big-cta">Get Started Today</a>
     </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a logged-in user
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    // Redirect to login if not authenticated
+    if (!currentUser) {
+      // Allow access to the registration link
+      document.getElementById('getStartedLink').style.display = 'block';
+    } else {
+      // Hide or disable the link if the user is logged in
+      document.getElementById('getStartedLink').style.display = 'none'; // Hides the link
+      document.getElementById('registerLink').style.display = 'none';
+      document.getElementById('loginLink').style.display = 'none';
+      // Alternatively, disable it:
+      document.getElementById('profileName').innerText = `${currentUser.name}`; // Display user name
+      // document.getElementById('getStartedLink').onclick = function(e) { e.preventDefault(); };
+    }
+
+    // Handle logout
+    document.getElementById('logoutLink').addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent the default link action
+      sessionStorage.removeItem('currentUser'); // Clear the session
+      window.location.href = 'login.html'; // Redirect to login
+    });
     // Animate header on load
     anime({
       targets: '.header h1, .header p',
@@ -283,5 +309,6 @@
     };
 
     setInterval(createParticle, 100);
+  });
   </script>
 </body></html>

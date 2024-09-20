@@ -103,8 +103,8 @@
   <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-left">
-      <a href="index.html" class="brand">CodeUjuzi</a>
-      <a href="course-outline.html" class="nav-link">Courses</a>
+      <a href="/" class="brand">CodeUjuzi</a>
+      <a href="/course-outline" class="nav-link">Courses</a>
   </div>
 
   <div class="navbar-right">
@@ -234,16 +234,48 @@
       <button type="submit">Sign Up</button>
     </form>
     <div class="signin-section">
-      Already have an account? <a href="login.html" class="signin-link">Sign In</a>
+      Already have an account? <a href="/login" class="signin-link">Sign In</a>
     </div>
   </div>
 
   <script>
     document.getElementById('signupForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Here you would typically send the form data to your server
-      console.log('Form submitted');
-      // You can add your own logic here to handle the form submission
+
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('dob').value;
+      const gender = document.getElementById('gender').value;
+      const language = document.getElementById('language').value;
+      const email = document.getElementById('email').value;
+      const country = document.getElementById('country').value;
+      const password = document.getElementById('password').value;
+
+      // Load existing users from localStorage
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+
+      // Check if user already exists
+      if (users.some(user => user.email === email)) {
+              alert('Email already exists! Please log in.');
+              return;
+            }
+       // Create new user object
+       const newUser = {
+        name,
+        dob,
+        gender,
+        language,
+        email,
+        country,
+        password // Consider hashing this before storing it
+      };
+
+      // Save new user to localStorage
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert('Registration successful! You can now log in.');
+      window.location.href = 'login.html'; // Redirect to login page
+
     });
   </script>
 </body>

@@ -57,8 +57,8 @@
 <!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-left">
-        <a href="index.html" class="brand">CodeUjuzi</a>
-        <a href="course-outline.html" class="nav-link">Courses</a>
+        <a href="/" class="brand">CodeUjuzi</a>
+        <a href="/course-outline" class="nav-link">Courses</a>
     </div>
 
     <div class="navbar-right">
@@ -66,9 +66,10 @@
         <div class="dropdown language-dropdown">
             <button class="dropdown-btn">Language</button>
             <div class="dropdown-content">
-                <a href="#">English</a>
-                <a href="#">Kiswahili</a>
-                <a href="#">French</a>
+                <a href="#" class="language-option" data-language="Swahili">Swahili</a>
+                <a href="#" class="language-option" data-language="Luganda">Luganda</a>
+                <a href="#" class="language-option" data-language="Maasai">Maasai</a>
+                <a href="#" class="language-option" data-language="Amharic">Amharic</a>
             </div>
         </div>
 
@@ -76,8 +77,8 @@
         <div class="dropdown profile-dropdown">
             <img src="avatar.png" alt="Profile" class="avatar">
             <div class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Logout</a>
+                <a href="#" id="profileName">Profile</a>
+                <a href="#" id="logoutLink">Logout</a>
             </div>
         </div>
     </div>
@@ -97,9 +98,25 @@
         <h2 id="lesson-title">Lesson Title</h2>
         <p id="lesson-content">Lesson content goes here.</p>
     </div>
+    <div id="output"></div>
 </main>
 
 <script>
+    //   document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a logged-in user
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    // Redirect to login if not authenticated
+    if (currentUser) {
+      document.getElementById('profileName').innerText = `${currentUser.name}`; // Display user name
+    }
+
+    // Handle logout
+    document.getElementById('logoutLink').addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent the default link action
+      sessionStorage.removeItem('currentUser'); // Clear the session
+      window.location.href = 'login.html'; // Redirect to login
+    });
     const lessons = [
         {
             title: "What is HTML5?",
@@ -154,6 +171,33 @@
     document.addEventListener('DOMContentLoaded', function() {
         updateLesson();
     });
+
+    document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default link action
+
+        const selectedLanguage = e.target.getAttribute('data-language');
+        console.log("languag is",selectedLanguage)
+        const content = document.getElementById('lesson-content').textContent;
+
+        fetch('/translate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content, language: selectedLanguage }) // Include selected language
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('output').textContent = data.translation || 'Error translating text.';
+        })
+        .catch(error => {
+            document.getElementById('output').textContent = 'Error translating text.';
+            console.error('Error:', error);
+        });
+    });
+    });
+
 </script>
 
 </body>

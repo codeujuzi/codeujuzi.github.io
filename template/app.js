@@ -11,7 +11,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 app.use(bodyParser.json());
 
 // Serve static files (like HTML, CSS, JS) from the 'public' directory
-app.use(express.static());
+app.use(express.static(path.join(__dirname)));
 
 // Route for the root URL to serve the main HTML file
 app.get('/', (req, res) => {

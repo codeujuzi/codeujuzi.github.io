@@ -1,5 +1,4 @@
-require('dotenv').config();
-
+const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
 const Groq = require('groq-sdk');
@@ -11,27 +10,27 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 app.use(bodyParser.json());
 
 // Serve static files (like HTML, CSS, JS) from the 'public' directory
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname,'../template')));
 
 // Route for the root URL to serve the main HTML file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, '../template/index.html'));
     
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, '../template/login.html'));
 });
 
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'register.html'));
+    res.sendFile(path.join(__dirname, '../template/register.html'));
 });
 
 app.get('/lessons', (req, res) => {
-    res.sendFile(path.join(__dirname,  'lessons.html'));
+    res.sendFile(path.join(__dirname,  '../template/lessons.html'));
 });
 app.get('/course-outline', (req, res) => {
-    res.sendFile(path.join(__dirname,  'course-outline.html'));
+    res.sendFile(path.join(__dirname,  '../template/course-outline.html'));
 });
 
 
@@ -72,7 +71,5 @@ app.post('/translate', async (req, res) => {
     }
 });
 
-// Start the server
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
+// Export the Express app as a Firebase function
+exports.app = functions.https.onRequest(app);

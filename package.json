@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "groq-sdk": "^0.8.0",
+    "update": "^0.7.4"
+  },
+  "name": "codeujuzi.github.io-main",
+  "version": "1.0.0",
+  "description": "+ CodeUjuzi is a skill-learning platform that offers free courses in a variety of topics through a website.",
+  "main": "app.js",
+ 
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
